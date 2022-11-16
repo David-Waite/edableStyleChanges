@@ -56,7 +56,7 @@ function Landing() {
 
   const [navigateToDonationMain, setNavigateToDonationMain] = useState(false);
   if (navigateToDonationMain === true) {
-    return <Navigate to={`organisation/${filteredOrganisations[0].id}`} />;
+    return <Navigate to={`organisation/${filteredOrganisations[0].data.id}`} />;
   }
   function handleKeyPress(target: any) {
     if (target.charCode === 13) {

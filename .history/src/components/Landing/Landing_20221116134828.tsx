@@ -56,13 +56,15 @@ function Landing() {
 
   const [navigateToDonationMain, setNavigateToDonationMain] = useState(false);
   if (navigateToDonationMain === true) {
-    return <Navigate to={`organisation/${filteredOrganisations[0].id}`} />;
+    return <Navigate to={`organisation/${filteredOrganisations[0].data.id}`} />;
   }
   function handleKeyPress(target: any) {
     if (target.charCode === 13) {
       setNavigateToDonationMain(true);
     }
   }
+
+  console.log(filteredOrganisations[0].id);
 
   return (
     //   these lines set up the format of the page

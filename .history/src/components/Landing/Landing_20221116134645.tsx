@@ -56,13 +56,15 @@ function Landing() {
 
   const [navigateToDonationMain, setNavigateToDonationMain] = useState(false);
   if (navigateToDonationMain === true) {
-    return <Navigate to={`organisation/${filteredOrganisations[0].id}`} />;
+    return <Navigate to={`organisation/${filteredOrganisations[0].data.id}`} />;
   }
   function handleKeyPress(target: any) {
     if (target.charCode === 13) {
       setNavigateToDonationMain(true);
     }
   }
+
+  console.log(filteredOrganisations[0].data);
 
   return (
     //   these lines set up the format of the page
@@ -156,10 +158,10 @@ function Landing() {
                 }}
               >
                 {filteredOrganisations.map((item: any) => (
-                  <Link key={item.id} to={`organisation/${item.id}`}>
+                  <Link key={item.data.id} to={`organisation/${item.data.id}`}>
                     <div
                       className={`orgName ${
-                        filteredOrganisations[0].id === item.id
+                        filteredOrganisations[0].data.id === item.data.id
                           ? "firstOrg"
                           : "notFirstOrg"
                       } `}
